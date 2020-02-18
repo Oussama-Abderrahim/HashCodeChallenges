@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b550aeb-783e-4b9a-999c-e64d6063e963" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/HashCodeChallenges/morepizza/PizzaChooser$Pizza.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/HashCodeChallenges/morepizza/PizzaChooser.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/HashCodeChallenges/morepizza/inputs/a_example.in" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/HashCodeChallenges/morepizza/inputs/b_small.in" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/HashCodeChallenges/morepizza/inputs/c_medium.in" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/HashCodeChallenges/morepizza/inputs/d_quite_big.in" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/HashCodeChallenges/morepizza/inputs/e_also_big.in" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/HashCodeChallenges/morepizza/problem_statement.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/morepizza/PizzaChooser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/banner.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HashCodeChallenges.iws" beforeDir="false" afterPath="$PROJECT_DIR$/HashCodeChallenges.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,6 +31,9 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Workspaces\JavaWorkspace\HashCodeChallenges\res" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\Workspaces\JavaWorkspace\HashCodeChallenges\src" />
     </key>
