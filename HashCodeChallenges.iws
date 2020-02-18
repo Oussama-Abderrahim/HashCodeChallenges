@@ -3,6 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="9b550aeb-783e-4b9a-999c-e64d6063e963" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/HashCodeChallenges/morepizza/PizzaChooser$Pizza.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/HashCodeChallenges/morepizza/PizzaChooser.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/HashCodeChallenges/morepizza/inputs/a_example.in" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/HashCodeChallenges/morepizza/inputs/b_small.in" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/HashCodeChallenges/morepizza/inputs/c_medium.in" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/HashCodeChallenges/morepizza/inputs/d_quite_big.in" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/HashCodeChallenges/morepizza/inputs/e_also_big.in" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/HashCodeChallenges/morepizza/problem_statement.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/morepizza/PizzaChooser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HashCodeChallenges.iws" beforeDir="false" afterPath="$PROJECT_DIR$/HashCodeChallenges.iws" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,11 +32,16 @@
   <component name="ProjectId" id="1XymWvHQpAa3q4RvIy8yHf7UbLp" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Workspaces\JavaWorkspace\HashCodeChallenges\src" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -40,6 +55,26 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="PizzaChooser" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="morepizza.PizzaChooser" />
+      <module name="HashCodeChallenges" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="morepizza.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.PizzaChooser" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -51,6 +86,29 @@
       <option name="presentableId" value="Default" />
       <updated>1582026743511</updated>
     </task>
+    <task id="LOCAL-00001" summary="Add MorePizza problem statement">
+      <created>1582026858031</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1582026858031</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add MorePizza problem statement" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add MorePizza problem statement" />
   </component>
 </project>
