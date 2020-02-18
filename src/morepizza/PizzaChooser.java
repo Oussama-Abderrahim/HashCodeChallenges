@@ -72,7 +72,56 @@ class PizzaChooser {
     public void estimate()
     {
         /// TODO: try more methods
-        estimateGreedy();
+        estimateGreedy2();
+    }
+
+    private void estimateGreedy2() {
+
+        // remove all slices if greater than M
+        for (Pizza p : types) {
+            if (p.nbSlices > M) types.remove(p);
+        }
+
+        // Sort Java 8 Final Form
+        types.sort(Comparator.comparingInt(o -> -1 * o.nbSlices));
+
+        // to save intermediate results
+
+        // Greedy solution
+        int maxScore = 0;
+        int i = 0;
+        while (maxScore <= M && maxScore + types.get(i).nbSlices <= M) {
+            maxScore += types.get(i).nbSlices;
+            choosenTypes.add(types.get(i));
+            i++;
+        }
+
+
+        // get Score without ith element
+        for (i = 0; i < types.size(); i++) {
+
+            ArrayList<Pizza> tempChoosen = new ArrayList<>();
+
+            int j = 0;
+            int score = 0;
+
+
+            while (j < N && score < M && (i == j || score + types.get(j).nbSlices <= M)) {
+                if (i != j) {
+                    score += types.get(j).nbSlices;
+                    tempChoosen.add(types.get(j));
+                }
+                j++;
+            }
+
+            // Compare
+            if (score > maxScore) {
+                maxScore = score;
+                choosenTypes = tempChoosen;
+            }
+
+            if (score >= M) break;
+        }
     }
 
     private void estimateGreedy() {
@@ -95,8 +144,6 @@ class PizzaChooser {
             i++;
         }
     }
-
-
 
 
     public void readInput(String filePath) throws IOException {
