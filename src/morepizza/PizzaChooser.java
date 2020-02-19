@@ -1,5 +1,7 @@
 package morepizza;
 
+import utils.SparceMatrix;
+
 import java.io.*;
 import java.nio.file.Paths;
 import java.util.*;
@@ -69,10 +71,9 @@ class PizzaChooser {
         System.out.println("Score for (N,M) = (" + N + "," + M + ") is : " + score);
     }
 
-    public void estimate()
-    {
+    public void estimate() {
         /// TODO: try more methods
-        estimateGreedy2();
+        estimateGreedy3();
     }
 
     private void estimateGreedy2() {
@@ -83,7 +84,7 @@ class PizzaChooser {
         }
 
         // Sort Java 8 Final Form
-        types.sort(Comparator.comparingInt(o -> -1 * o.nbSlices));
+        types.sort(Comparator.comparingInt(o -> o.nbSlices));
 
         // to save intermediate results
 
@@ -96,15 +97,12 @@ class PizzaChooser {
             i++;
         }
 
-
         // get Score without ith element
         for (i = 0; i < types.size(); i++) {
-
             ArrayList<Pizza> tempChoosen = new ArrayList<>();
 
             int j = 0;
             int score = 0;
-
 
             while (j < N && score < M && (i == j || score + types.get(j).nbSlices <= M)) {
                 if (i != j) {
@@ -123,6 +121,86 @@ class PizzaChooser {
             if (score >= M) break;
         }
     }
+
+    private void estimateGreedy3() {
+
+        // remove all slices if greater than M
+        for (Pizza p : types) {
+            if (p.nbSlices > M) types.remove(p);
+        }
+
+        // Sort Java 8 Final Form
+        types.sort(Comparator.comparingInt(o -> o.nbSlices));
+
+        // to save intermediate results
+
+        // Greedy solution
+        int[] dp = new int[N];
+
+        int maxScore = 0;
+        int i = 0;
+        while (maxScore <= M && maxScore + types.get(i).nbSlices <= M) {
+            maxScore += types.get(i).nbSlices;
+            choosenTypes.add(types.get(i));
+            dp[i] = maxScore;
+            i++;
+        }
+
+        int greedyIndex = i - 1;
+        int maxIndex = greedyIndex;
+        int maxExcludedIndexI = -1;
+        int maxExcludedIndexK = -1;
+
+
+        for (int k = 0; k < types.size(); k++) {
+
+            // get Score without ith element
+            for (i = 0; i < types.size(); i++) {
+
+                int j = greedyIndex;
+                int score = dp[j];
+
+                if (i <= j)
+                    score = score - types.get(i).nbSlices;
+                if (k <= j && k != i)
+                    score = score - types.get(k).nbSlices;
+
+                j++;
+
+                while (j < N && score < M && (i == j || k == j || score + types.get(j).nbSlices <= M)) {
+                    if (i != j && k != j) {
+                        score += types.get(j).nbSlices;
+                    }
+                    j++;
+                }
+
+                // Compare
+                if (score > maxScore) {
+                    maxScore = score;
+                    maxIndex = j - 1;
+                    maxExcludedIndexI = i;
+                    maxExcludedIndexK = k;
+                }
+
+                if (score >= M) break;
+            }
+        }
+        // Build the solution
+        ArrayList<Pizza> tempChoosen = new ArrayList<>();
+
+        for (int j = 0; j <= maxIndex; j++) {
+            tempChoosen.add(types.get(j));
+        }
+
+        if (maxExcludedIndexI != -1 && maxExcludedIndexI <= maxIndex)
+            tempChoosen.remove(types.get(maxExcludedIndexI));
+
+        if (maxExcludedIndexK != -1 && maxExcludedIndexK <= maxIndex)
+            tempChoosen.remove(types.get(maxExcludedIndexK));
+
+        choosenTypes = tempChoosen;
+    }
+
 
     private void estimateGreedy() {
 
@@ -143,6 +221,38 @@ class PizzaChooser {
             choosenTypes.add(types.get(i));
             i++;
         }
+    }
+
+    /**
+     * A dynamic solution to check whether a subset whose sum equals n exists
+     *
+     * @param n   number of elements
+     * @param sum the value
+     * @return (Boolean)
+     */
+    boolean isSubsetSum(int n, int sum) {
+        SparceMatrix<Boolean> subset = new SparceMatrix<>(false);
+
+        // If sum is 0, then answer is true
+        for (int i = 0; i <= n; i++)
+            subset.set(0, i, true);
+
+        // If sum is not 0 and set is empty,
+        // then answer is false
+        for (int i = 1; i <= sum; i++)
+            subset.set(i, 0, true);
+
+        // Fill the subset table in botton
+        // up manner
+        for (int i = 1; i <= sum; i++) {
+            for (int j = 1; j <= n; j++) {
+                subset.set(i, j, subset.get(i, j - 1));
+                if (i >= types.get(j - 1).nbSlices)
+                    subset.set(i, j, subset.get(i, j) || subset.get(i - types.get(j - 1).nbSlices, j - 1));
+            }
+        }
+
+        return subset.get(sum, n);
     }
 
 
