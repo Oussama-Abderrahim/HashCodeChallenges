@@ -9,4 +9,4 @@ Hash Code is a team programming competition organized by Google for students and
 ### Solved Problems Set
 #### More Pizza
 More pizza hash code practice problem.  
-Current score : **1 505 000 231**
+Current score : **1 505 004 614**
