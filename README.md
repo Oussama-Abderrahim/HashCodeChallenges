@@ -8,5 +8,9 @@ Hash Code is a team programming competition organized by Google for students and
 
 ### Solved Problems Set
 #### More Pizza
-More pizza hash code practice problem.  
+Hash code 2020 practice problem.  
 Current score : **1 505 004 614**
+
+#### Book Scan
+Hash code 2020 qualification problem.  
+Current score : **26 808 948**
