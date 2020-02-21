@@ -111,22 +111,41 @@ class BookScanner {
         }
         int day = 0;
 
+        int i = 0;
         while (!libraries.isEmpty() && day < D) {
             // Compute ratio for each library (without counting already scanned books)
-            int finalDay = day;
+            final int currentDay = day;
 
-            libraries.sort(Comparator.comparingDouble(l -> -1 * l.getProfitPerDayRatio(D - finalDay - 1)));
+            libraries.sort(Comparator.comparingDouble(l -> -1 * l.getProfitPerDayRatio(D - currentDay - 1)));
 
             // Add the highest score library
-            if (libraries.get(0).T + finalDay < D && !libraries.get(0).libraryBooks.isEmpty()) {
-                int x = libraries.get(0).registerAndScan(day);
+            if (libraries.get(i).T + currentDay < D && !libraries.get(i).libraryBooks.isEmpty()) {
+                int x = libraries.get(i).registerAndScan(day);
                 if (x > day) {
-                    day += libraries.get(0).T;
-                    choosenLibraries.add(libraries.get(0));
-                    removeFromAllLibraries(libraries.get(0).scannedBooks, null);
+                    day += libraries.get(i).T;
+                    choosenLibraries.add(libraries.get(i));
+                }
+                libraries.remove(i);
+                i = 0;
+            } else {
+                i++;
+                if(i >= libraries.size()) {
+                    break;
                 }
             }
-            libraries.remove(0);
+        }
+
+        libraries.sort(Comparator.comparingDouble(l -> l.T));
+
+        // Add the remaining if possible
+        i = 0;
+        if (!libraries.isEmpty() && libraries.get(i).T + day < D && !libraries.get(i).libraryBooks.isEmpty()) {
+            int x = libraries.get(i).registerAndScan(day);
+            if (x > day) {
+                day += libraries.get(i).T;
+                choosenLibraries.add(libraries.get(i));
+            }
+            libraries.remove(i);
         }
 
     }
@@ -231,7 +250,7 @@ class BookScanner {
                 s += libraryBooks.get(i).score;
             }
 
-            return s / T;
+            return s/(remainingDay - T) + s/T;
         }
 
         public int registerAndScan(int day) {
