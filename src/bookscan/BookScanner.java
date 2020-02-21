@@ -104,7 +104,7 @@ class BookScanner {
     public void solveLast() {
 
         /* Remove ALL duplicates and sort Books by score */
-        libraries.sort(Comparator.comparingDouble(l -> l.T));
+        libraries.sort(Comparator.comparingDouble(l -> -1 * l.getProfitPerDayRatio(D - 1)));
         for (Library library : libraries) {
             removeFromAllLibraries(library.libraryBooks, library);
             library.libraryBooks.sort(Comparator.comparingInt(o -> -1 * o.score));
